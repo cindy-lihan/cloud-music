@@ -6,36 +6,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>管理页面</title>
+    <link rel="stylesheet" href="./admin.css">
 </head>
 
-<body>
+<body class="l-aside-left">
+    <header class="header-index">
+        <div class="header-index-inner">
+            <a class="header-index-log" title="网易云音乐"></a>
+            <div class="header-user">
+                <img class="user-avatar" src="//127.0.0.1:8080/src/imgs/avater.jpeg" alt="头像">
+                <span class="user-title">管理员账号</span>
+            </div>
+        </div>
+    </header>
+    <div id="vue-body">
+        <section class="inner-center clearfix">
+            <aside class="aside-left">
+                <div class="l-nav-area">
+                    <ul class="l-nav">
+                        <li class="l-nav-item"><a title="歌曲管理" href="#/songs" class="active">歌曲管理</a></li>
+                        <li class="l-nav-item"><a title="歌单管理" href="#/songlist">歌单管理</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main class="main">
+                <div class="songs-component">
+                    <div class="tabs">
+                      
+                        <div class="search">
+                            <input type="text" id="keywords" placeholder="搜索歌名" /><span id="js_search"  class="btn-search"></span> 
+                        </div>
+                        <div class="upload">
+                                <input class='btn-upload' type="button" id="upload" value="上传文件">
+                            </div>
+                    </div>
+                    <div class="flex-list">
+                        <div class="flex-list-header">
+                            <div class="flex-row">
+                                <div class="flex-cell">歌名</div>
+                                <div class="flex-cell">歌手</div>
+                                <div class="flex-cell">专辑</div>
+                                <div class="flex-cell">链接</div>
+                                <div class="flex-cell">操作</div>
+                            </div>
+                        </div>
+                        <div class="flex-list-item first">
+                            <div class="flex-row content">
+                                <div class="flex-cell first name">歌名xxx</div>
+                                <div class="flex-cell singer">歌手xxx</div>
+                                <div class="flex-cell collection">专辑xxx</div>
+                                <div class="flex-cell url">外链x</div>
+                                <div class="flex-cell operating">
+                                    <a href="javascript:void(0);" class="cell-edit">修改</a>
+                                    <a href="javascript:void(0);" class="cell-delete">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-list-item">
+                            <div class="flex-row content">
+                                <div class="flex-cell name">歌名yyy</div>
+                                <div class="flex-cell singer">歌手yyy</div>
+                                <div class="flex-cell collection">专辑yyy</div>
+                                <div class="flex-cell url">外链y</div>
+                                <div class="flex-cell operating">
+                                    <a href="javascript:void(0);" class="cell-edit">修改</a>
+                                    <a href="javascript:void(0);" class="cell-delete">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+        <footer class="footer"></footer>
+    </div>
+
+    <!-- <div id="uploadContainer">
+            <div id="uploadButton">
+                <p>点击或者拖拽文件</p>
+                <p>文件大小不能超过 40MB</p>
+            </div>
+    </div>
+    <div id="sourcePlayer">
+    <video controls="" autoplay="" name="media">
+        <source src="http://q7soun4xa.bkt.clouddn.com/lqiZY40kwhMkfaGrp5-wsaRVxGbf" type="audio/mpeg">
+    </video>
+    </div> -->
 
 </body>
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
-<script>
-    var { Query, User } = AV;
-    var APP_ID = 'KCMzVQVudzfkO9bvGIERzbnX-MdYXbMMI'
-    var APP_KEY = 'J4WMrLv6Dk61RV3MCm53Ikk8'
-    var SERVER_URL = 'https://us.leancloud.cn'
-    AV.init({
-        appId: APP_ID,
-        appKey: APP_KEY,
-        serverURLs: SERVER_URL,
-    })
+<script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
+<script src="../node_modules/plupload/js/moxie.min.js"></script>
+<script src="../node_modules/plupload/js/plupload.min.js"></script>
 
-    var TestObject = AV.Object.extend('Playlist')
-    var testObject = new TestObject();
-    testObject.set('name','神仙音乐-一秒心动的宝藏女生')
-    testObject.set('creator','樱桃味音乐')
-    testObject.set('creatorId','樱桃味音乐')
-    testObject.set('describe','让人心动的音乐（女生集）持续更新')
-    testObject.set('songs',['1','2','3'])
-    testObject.set('img','none')
-    testObject.save().then((testObject) => {
-        alert("保存成功")
-    },()=>{
-        alert("保存失败")
-    })
+<script>
+    //引入Plupload 、qiniu.js后
+    var uploader = Qiniu.uploader({
+        runtimes: 'html5,flash,html4',    //上传模式,依次退化
+        browse_button: 'uploadButton',       //上传选择的点选按钮，**必需**
+        uptoken_url: 'http://localhost:19110/uptoken',      //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
+        domain: 'q7soun4xa.bkt.clouddn.com',   //bucket 域名，下载资源时用到，**必需**
+        get_new_uptoken: false,  //设置上传文件的时候是否每次都重新获取新的token
+        unique_names: false,
+        container: 'uploadContainer',           //上传区域DOM ID，默认是browser_button的父元素，
+        max_file_size: '20mb',           //最大文件体积限制
+        dragdrop: true,                   //开启可拖曳上传
+        drop_element: 'uploadButton',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+        chunk_size: '4mb',                //分块上传时，每片的体积
+        auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
+        init: {
+            'FilesAdded': function (up, files) {
+                plupload.each(files, function (file) {
+                    // 文件添加进队列后,处理相关的事情
+                });
+            },
+            'BeforeUpload': function (up, file) {
+                // 每个文件上传前,处理相关的事情
+            },
+            'UploadProgress': function (up, file) {
+                // 每个文件上传时,处理相关的事情
+            },
+            'FileUploaded': function (up, file, info) {
+                // 每个文件上传成功后,处理相关的事情
+                // 其中 info.response 是文件上传成功后，服务端返回的json，形式如
+                // {
+                //    "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
+                //    "key": "Fh8xVqod2MQ1mocfI4S4KpRL6D98"
+                //  }
+                var domain = up.getOption('domain');
+                var res = JSON.parse(info.response);
+                var sourceLink = 'http://' + domain + '/' + encodeURIComponent(res.key);
+
+            },
+            'Error': function (up, err, errTip) {
+                //上传出错时,处理相关的事情
+            },
+            'UploadComplete': function () {
+                //队列文件处理完毕后,处理相关的事情
+            },
+            'Key': function (up, file) {
+                // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                // 该配置必须要在 unique_names: false , save_key: false 时才生效
+
+                var key = "";
+                // do something with key here
+                return key
+            }
+        }
+    });
+
+
+    // var { Query, User } = AV;
+    // var APP_ID = 'KCMzVQVudzfkO9bvGIERzbnX-MdYXbMMI'
+    // var APP_KEY = 'J4WMrLv6Dk61RV3MCm53Ikk8'
+    // var SERVER_URL = 'https://us.leancloud.cn'
+    // AV.init({
+    //     appId: APP_ID,
+    //     appKey: APP_KEY,
+    //     serverURLs: SERVER_URL,
+    // })
+
+    // var TestObject = AV.Object.extend('Playlist')
+    // var testObject = new TestObject();
+    // testObject.set('name','神仙音乐-一秒心动的宝藏女生')
+    // testObject.set('creator','樱桃味音乐')
+    // testObject.set('creatorId','樱桃味音乐')
+    // testObject.set('describe','让人心动的音乐（女生集）持续更新')
+    // testObject.set('songs',['1','2','3'])
+    // testObject.set('img','none')
+    // testObject.save().then((testObject) => {
+    //     alert("保存成功")
+    // },()=>{
+    //     alert("保存失败")
+    // })
 </script>
 
 </html>

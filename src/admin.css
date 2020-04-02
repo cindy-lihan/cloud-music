@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f4f4;
+  min-width: 990px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  min-height: 100%;
+}
+
+ol,
+ul {
+  list-style: none outside none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+/* layout */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#vue-body {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header-index {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 40px;
+}
+.header-index-inner {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-index-log {
+  display: inline-block;
+  margin: 0 60px;
+  width: 140px;
+  height: 80px;
+  background: url("http://127.0.0.1:8080/src/imgs/logo.png") no-repeat;
+  background-size: 140px 80px;
+}
+
+.header-user {
+  flex-basis: 200px;
+  height: 80px;
+  line-height: 80px;
+  cursor: pointer;
+  position: relative;
+}
+.user-avatar {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  margin-top: -18px;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.user-title {
+  position: absolute;
+  margin-left: 50px;
+  line-height: 80px;
+  font-size: 14px;
+}
+
+.inner-center {
+  display: flex;
+  height: 80vh;
+}
+.inner-center .aside-left {
+  min-width: 220px;
+  border: 1px solid #ddd;
+  margin-right: 40px;
+  background: #fff;
+}
+
+.inner-center .main {
+  /*flex-grow:'瓜分'父项的剩余空间  */
+  flex-grow: 1;
+}
+.l-nav-item {
+  height: 50px;
+  line-height: 50px;
+}
+.l-nav-item > a {
+  border-left: 3px solid transparent;
+  display: block;
+  color: #333;
+  text-indent: 20px;
+}
+.l-nav-item a.active {
+  border-color: #23b8ff;
+  color: #23b8ff;
+}
+
+.l-nav-item a:hover {
+  color: #23b8ff;
+}
+
+.songs-component .tabs{
+  display: flex;
+  align-items: center;
+
+}
+.upload{
+  height: 60px;
+}
+
+.upload .btn-upload{
+   height: 40px;
+   width: 110px;
+   color: white;
+   cursor: pointer;
+   background: url(./icon/upload.png) no-repeat #23b8ff right bottom;
+   background-size: 20px 20px; 
+   background-position: top 10px left 8px;
+   border: none;
+   border-radius: 3px;
+   vertical-align: top;
+   /* 块级元素 首行文字缩进 */
+   text-indent:14px;
+}
+.search{
+  height: 60px;
+  flex-grow: 1;
+
+}
+.search input{
+  display: inline-block;
+  height: 40px;
+  width:200px;
+  vertical-align: top;
+}
+
+input:focus{
+  outline: none;
+
+}
+.search .btn-search{
+  display: inline-block;
+  width:40px;
+  height:40px;
+  background: url(./icon/search.png) no-repeat #23b8ff right bottom;
+  background-size: 50% 50%; 
+  background-position: top 10px left 10px;
+  vertical-align: top;
+  cursor: pointer;
+  border: none;
+  margin-left: -1px;
+  border-radius: 0 3px 3px 0;
+
+}
+
+
+.songs-component .flex-list-header {
+  line-height: 42px;
+  border: 1px solid #ddd;
+}
+
+.flex-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.songs-component .flex-list .flex-cell {
+  padding: 0 20px;
+  width: 168px;
+}
+
+
+.flex-list-item {
+  border: 1px solid #ddd;
+  background: #fff;
+  line-height: 42px;
+}
+
+.flex-list-item.first{
+  margin-top: 21px;
+  border-bottom: none;
+}
+
+.songs-component .flex-list-item .flex-cell {
+  border-right: 1px solid #eee;
+}
+
+.flex-row .operating{
+  color: #23b8ff;
+}
+
+div#uploadContainer {
+  border: 2px dashed #ddd;
+  border-radius: 10px;
+  width: 200px;
+  padding: 50px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
