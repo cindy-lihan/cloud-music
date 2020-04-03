@@ -110,12 +110,12 @@ a {
   text-indent: 20px;
 }
 .l-nav-item a.active {
-  border-color: #23b8ff;
-  color: #23b8ff;
+  border-color: #DE0119;
+  color: #DE0119;
 }
 
 .l-nav-item a:hover {
-  color: #23b8ff;
+  color: #DE0119;
 }
 
 .songs-component .tabs{
@@ -133,7 +133,7 @@ a {
    width: 110px;
    color: white;
    cursor: pointer;
-   background: url(./icon/upload.png) no-repeat #23b8ff right bottom;
+   background: url(./icon/upload.png) no-repeat #DE0119 right bottom;
    background-size: 18px 18px; 
    background-position: top 10px left 12px;
    border: none;
@@ -162,7 +162,7 @@ input:focus{
   display: inline-block;
   width:40px;
   height:40px;
-  background:#23b8ff;
+  background:#DE0119;
   vertical-align: top;
   cursor: pointer;
   border: none;
@@ -213,7 +213,7 @@ input:focus{
 }
 
 .flex-row .operating{
-  color: #23b8ff;
+  color: #DE0119;
 }
 
 #upload-pop-mask{
@@ -231,7 +231,7 @@ input:focus{
   display: none;
   width: 480px;
   height: 300px;
-  border-top: 4px solid #23b8ff;
+  border-top: 4px solid #DE0119;
   z-index:400;
   /* fixed相对视口位置 */
   position: fixed; 
