@@ -7,6 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>管理页面</title>
     <link rel="stylesheet" href="./admin.css">
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+    <script src="//at.alicdn.com/t/font_1731446_1w9f9ob8dnc.js"></script>
 </head>
 
 <body class="l-aside-left">
@@ -32,13 +42,16 @@
             <main class="main">
                 <div class="songs-component">
                     <div class="tabs">
-                      
                         <div class="search">
-                            <input type="text" id="keywords" placeholder="搜索歌名" /><span id="js_search"  class="btn-search"></span> 
+                            <input type="text" id="keywords" placeholder="搜索歌名" /><span id="js_search" class="btn-search">
+                                    <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#iconsearch-32"></use>
+                                        </svg>
+                            </span>
                         </div>
                         <div class="upload">
-                                <input class='btn-upload' type="button" id="upload" value="上传文件">
-                            </div>
+                            <input class='btn-upload' type="button" id="upload" value="上传文件">
+                        </div>
                     </div>
                     <div class="flex-list">
                         <div class="flex-list-header">
@@ -80,13 +93,30 @@
         </section>
         <footer class="footer"></footer>
     </div>
+    <div class="upload-pop-root">
+        <div id="upload-pop-mask"></div>
+        <div id="upload-pop" class="upload-pop-wrapper">
+            <div class="upload-pop-hd">
+                <h3>上传歌曲</h3>
+                <span class="pop-close">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#iconclose"></use>
+                    </svg>
 
-    <!-- <div id="uploadContainer">
-            <div id="uploadButton">
-                <p>点击或者拖拽文件</p>
-                <p>文件大小不能超过 40MB</p>
+
+                </span>
             </div>
+            <div id="uploadContainer">
+                <div id="uploadButton">
+                    <p>点击或者拖拽文件</p>
+                    <p>文件大小不能超过 40MB</p>
+                </div>
+            </div>
+        </div>
     </div>
+    </div>
+
+    <!-- 
     <div id="sourcePlayer">
     <video controls="" autoplay="" name="media">
         <source src="http://q7soun4xa.bkt.clouddn.com/lqiZY40kwhMkfaGrp5-wsaRVxGbf" type="audio/mpeg">

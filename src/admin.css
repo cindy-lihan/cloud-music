@@ -11,6 +11,7 @@ body {
   color: #333;
   background-color: #fff;
   min-height: 100%;
+  position: relative;
 }
 
 ol,
@@ -120,6 +121,7 @@ a {
 .songs-component .tabs{
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
 }
 .upload{
@@ -132,13 +134,13 @@ a {
    color: white;
    cursor: pointer;
    background: url(./icon/upload.png) no-repeat #23b8ff right bottom;
-   background-size: 20px 20px; 
-   background-position: top 10px left 8px;
+   background-size: 18px 18px; 
+   background-position: top 10px left 12px;
    border: none;
    border-radius: 3px;
    vertical-align: top;
    /* 块级元素 首行文字缩进 */
-   text-indent:14px;
+   text-indent:12px;
 }
 .search{
   height: 60px;
@@ -160,15 +162,20 @@ input:focus{
   display: inline-block;
   width:40px;
   height:40px;
-  background: url(./icon/search.png) no-repeat #23b8ff right bottom;
-  background-size: 50% 50%; 
-  background-position: top 10px left 10px;
+  background:#23b8ff;
   vertical-align: top;
   cursor: pointer;
   border: none;
   margin-left: -1px;
   border-radius: 0 3px 3px 0;
 
+}
+
+.btn-search .icon{
+  width: 28px;
+  height: 28px;
+  margin-top:4px;
+  margin-left: 4px;
 }
 
 
@@ -209,13 +216,68 @@ input:focus{
   color: #23b8ff;
 }
 
+#upload-pop-mask{
+  display: none;
+  background-color: rgba(0,0,0,.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+.upload-pop-wrapper{
+  background: white;
+  display: none;
+  width: 480px;
+  height: 300px;
+  border-top: 4px solid #23b8ff;
+  z-index:400;
+  /* fixed相对视口位置 */
+  position: fixed; 
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  margin:auto; 
+
+}
+
+.upload-pop-hd{
+  position: relative;
+  color: #999;
+  margin-bottom: 30px;
+}
+
+.upload-pop-hd h3{
+  margin: 5px;
+}
+
+.pop-close{
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left:456px;
+  top: 1px; 
+}
+.pop-close:hover{
+  color: #333;
+
+}
+
+
 div#uploadContainer {
-  border: 2px dashed #ddd;
+  border: 2px dashed #999;
   border-radius: 10px;
-  width: 200px;
+  width: 450px;
   padding: 50px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: white;
+  position: absolute;
+  left: 20px;
 }
