@@ -266,9 +266,18 @@ input:focus{
   color: #333;
 
 }
+.btn-choose{
+   height: 40px;
+   width: 110px;
+   color: white;
+   cursor: pointer;
+   background:#DE0119;
+   border-color: transparent;
+   border-radius: 3px;
+   margin:20px;
+}
 
-
-div#uploadContainer {
+#upload-area {
   border: 2px dashed #999;
   border-radius: 10px;
   width: 450px;
@@ -278,6 +287,6 @@ div#uploadContainer {
   align-items: center;
   flex-direction: column;
   background: white;
-  position: absolute;
-  left: 20px;
+  margin: 20px;
+  
 }
