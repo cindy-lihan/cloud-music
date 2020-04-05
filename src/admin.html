@@ -43,14 +43,15 @@
                 <div class="songs-component">
                     <div class="tabs">
                         <div class="search">
-                            <input type="text" id="keywords" placeholder="搜索歌名" /><span id="js_search" class="btn-search">
-                                    <svg class="icon" aria-hidden="true">
-                                            <use xlink:href="#iconsearch-32"></use>
-                                        </svg>
+                            <input type="text" id="keywords" placeholder="搜索歌名" /><span id="js_search"
+                                class="btn-search">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#iconsearch-32"></use>
+                                </svg>
                             </span>
                         </div>
                         <div class="upload">
-                            <input class='btn-upload' type="button" id="upload" value="上传文件">
+                            <input class='btn-upload' type="button" id="upload" value="新增歌曲">
                         </div>
                     </div>
                     <div class="flex-list" id='songlist-container'>
@@ -64,19 +65,42 @@
         <div id="upload-pop-mask"></div>
         <div id="upload-pop" class="upload-pop-wrapper">
             <div class="upload-pop-hd">
-                <h3>上传歌曲</h3>
+                <h3>新增歌曲</h3>
                 <span class="pop-close">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#iconclose"></use>
                     </svg>
                 </span>
             </div>
-            <div id="upload-container">
-                <div id="upload-area">
-                    <p>拖拽文件上传</p>
-                    <p>文件大小不能超过 40MB</p>
+            <div class="add-song-container">
+                <div id='upload-song-container'>
+                    <div id="upload-area">
+                        <p><input class='btn-choose' type="button" id="upload-button" value="选择文件"><span>或者拖拽文件上传</span>
+                        </p>
+                        <p>文件大小不能超过40MB</p>
+                    </div>
                 </div>
-                <input class='btn-choose' type="button" id="upload-button" value="选择文件">
+                <div id='song-info-container'>
+                    <div class="song-info-area ">
+                        <form class="song-info-form">
+                            <div class="song-info-row"><label for="songName">歌名</label><input type="text"
+                                    name="songName" id="songName">
+                            </div>
+                            <div class="song-info-row"><label for="singer">歌手</label><input type="text" name="singer"
+                                    id="singer">
+                            </div>
+                            <div class="song-info-row"><label for="collection">专辑</label><input type="text"
+                                    name="collection" id="collection">
+                            </div>
+                            <div class="song-info-row"><label for="collection">外链</label><input class='input-readonly'
+                                    type="text" name="collection" id="collection" placeholder="请上传文件"
+                                    readonly="readonly">
+                            </div>
+                            <div> <input class='btn-save' type="button" id="saveSong" value="保存"></div>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -97,8 +121,9 @@
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src='./js/song-list.js'></script>
 <script src="./js/upload-song.js"></script>
+
 <script>
-    
+
 
     // var { Query, User } = AV;
     // var APP_ID = 'KCMzVQVudzfkO9bvGIERzbnX-MdYXbMMI'

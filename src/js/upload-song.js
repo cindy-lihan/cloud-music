@@ -1,6 +1,6 @@
 {
   let view = {
-    el: ".upload-pop-root",
+    el: "#upload-song-container",
     find: function(selector) {
       return $(this.el).find(selector)[0];
     }
@@ -44,6 +44,7 @@
             var res = JSON.parse(info.response);
             var sourceLink =
               "http://" + domain + "/" + encodeURIComponent(res.key);
+            
           },
           Error: function(up, err, errTip) {
             //上传出错时,处理相关的事情

@@ -217,7 +217,7 @@ input:focus{
 }
 
 #upload-pop-mask{
-  display: none;
+  /* display: none; */
   background-color: rgba(0,0,0,.6);
   position: absolute;
   top: 0;
@@ -227,10 +227,10 @@ input:focus{
   z-index: 100;
 }
 .upload-pop-wrapper{
+  /* display: none; */
   background: white;
-  display: none;
   width: 480px;
-  height: 300px;
+  height: 500px;
   border-top: 4px solid #DE0119;
   z-index:400;
   /* fixed相对视口位置 */
@@ -240,13 +240,13 @@ input:focus{
   left:0;
   bottom:0;
   margin:auto; 
-
+  display: flex;
+  flex-direction: column;
 }
 
 .upload-pop-hd{
   position: relative;
-  color: #999;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .upload-pop-hd h3{
@@ -266,27 +266,70 @@ input:focus{
   color: #333;
 
 }
+
+.add-song-container{
+  margin: 0 auto;
+  height: 400px;
+}
+
+.song-info-area{
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.song-info-form{  
+  margin-bottom: 5px;
+
+}
+.song-info-row{
+  height: 26px;
+  line-height: 26px;
+  display: flex;
+  margin-bottom: 5px;
+}
+.song-info-row  input{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 15px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  width: 220px;
+}
+
 .btn-choose{
-   height: 40px;
-   width: 110px;
-   color: white;
+  display: inline-block;
+   height: 32px;
+   width: 82px;
+   color:#333;
    cursor: pointer;
-   background:#DE0119;
-   border-color: transparent;
+   border: 1px solid grey;
    border-radius: 3px;
-   margin:20px;
+   font-size: 14px;
+   margin:5px;
 }
 
 #upload-area {
   border: 2px dashed #999;
   border-radius: 10px;
-  width: 450px;
-  padding: 50px 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  width: 320px;
+  padding: 30px 30px 30px 20px;
   background: white;
-  margin: 20px;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
 }
+
+.btn-save{
+  height: 32px;
+  width: 90px;
+  color: white;
+  cursor: pointer;
+  background:#DE0119;
+  border-color: transparent;
+  border-radius: 3px;
+  margin-top:10px;
+
+}
+

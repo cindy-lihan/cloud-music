@@ -11,15 +11,11 @@ window.event = {
         }
     },
     on(eventName, fn){ //订阅
-        for(let key in this.events){
-            if(key === eventName){
-                if(this.events[key] === undefined){
-                    this.events[key] = []
-                }
-                this.events[key].push(fn)
-            }
+       
+        if(this.events[key] === undefined){
+            this.events[key] = []
         }
-
+        this.events[key].push(fn)
     },
     off(){
 
