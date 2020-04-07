@@ -217,7 +217,7 @@ input:focus{
 }
 
 #upload-pop-mask{
-  /* display: none; */
+  display: none;
   background-color: rgba(0,0,0,.6);
   position: absolute;
   top: 0;
@@ -227,7 +227,7 @@ input:focus{
   z-index: 100;
 }
 .upload-pop-wrapper{
-  /* display: none; */
+  display: none;
   background: white;
   width: 480px;
   height: 500px;
@@ -239,14 +239,13 @@ input:focus{
   right:0;
   left:0;
   bottom:0;
-  margin:auto; 
-  display: flex;
-  flex-direction: column;
+  margin:auto;
+
 }
 
 .upload-pop-hd{
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .upload-pop-hd h3{
@@ -268,26 +267,29 @@ input:focus{
 }
 
 .add-song-container{
-  margin: 0 auto;
+  margin: 10px;
   height: 400px;
+  position: absolute;
+  left:50%;
+  transform:translateX(-50%) ;
 }
 
 .song-info-area{
-  margin: 0 auto;
-  padding: 20px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .song-info-form{  
   margin-bottom: 5px;
 
 }
-.song-info-row{
+.row{
   height: 26px;
   line-height: 26px;
   display: flex;
   margin-bottom: 5px;
 }
-.song-info-row  input{
+.row input{
   display: inline-block;
   vertical-align: top;
   margin-left: 15px;
@@ -299,7 +301,7 @@ input:focus{
 .btn-choose{
   display: inline-block;
    height: 32px;
-   width: 82px;
+   width: 78px;
    color:#333;
    cursor: pointer;
    border: 1px solid grey;
