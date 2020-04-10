@@ -1,4 +1,4 @@
-window.event = {
+window.eventHub = {
     events:{},
     emit(eventName, data){  //发布
         for(let key in this.events){
@@ -11,11 +11,10 @@ window.event = {
         }
     },
     on(eventName, fn){ //订阅
-       
-        if(this.events[key] === undefined){
-            this.events[key] = []
+        if(this.events[eventName] === undefined){
+            this.events[eventName] = []
         }
-        this.events[key].push(fn)
+        this.events[eventName].push(fn)
     },
     off(){
 

@@ -180,7 +180,7 @@ input:focus{
 
 
 .songs-component .flex-list-header {
-  line-height: 42px;
+  height: 42px;
   border: 1px solid #ddd;
 }
 
@@ -194,14 +194,21 @@ input:focus{
 .songs-component .flex-list .flex-cell {
   padding: 0 20px;
   width: 168px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 100%;
+  line-height: 42px;
 }
 
 
 .flex-list-item {
-  border: 1px solid #ddd;
   background: #fff;
   line-height: 42px;
+  border: 1px solid #ddd;
 }
+
+
 
 .flex-list-item.first{
   margin-top: 21px;
@@ -225,6 +232,12 @@ input:focus{
   bottom: 0;
   left: 0;
   z-index: 100;
+}
+#upload-pop-mask.active{
+  display: block;
+}
+.upload-pop-wrapper.active{
+  display: block;
 }
 .upload-pop-wrapper{
   display: none;

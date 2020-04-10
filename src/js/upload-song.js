@@ -42,9 +42,11 @@
           FileUploaded: function(up, file, info) {
             var domain = up.getOption("domain");
             var res = JSON.parse(info.response);
-            var sourceLink =
-              "http://" + domain + "/" + encodeURIComponent(res.key);
-            
+            var sourceLink = "http://" + domain + "/" + encodeURIComponent(res.key);
+            window.eventHub.emit('upload',{
+              link: sourceLink,
+              key: res.key
+            })
           },
           Error: function(up, err, errTip) {
             //上传出错时,处理相关的事情
@@ -56,7 +58,7 @@
             // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
             // 该配置必须要在 unique_names: false , save_key: false 时才生效
 
-            var key = "";
+            var key = file.name;
             // do something with key here
             return key;
           }
