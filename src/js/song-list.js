@@ -4,7 +4,7 @@
     template: `
     <div class="tabs">
     <div class="search">
-        <input type="text" id="keywords" placeholder="搜索歌名" /><span id="js_search"
+        <input type="text" id="keywords" placeholder="搜索歌名" name='search'/><span id="song_search"
             class="btn-search">
             <svg class="icon" aria-hidden="true">
                 <use xlink:href="#iconsearch-32"></use>
@@ -74,6 +74,17 @@
       },()=>{
         alert('删除失败');
       });
+    },
+    searchByName: function (name) {
+      var query = new AV.Query('Song');
+      query.contains('name', name);
+      return query.find().then((songs)=>{
+        this.data.songs = songs.map(song => {
+          return { id: song.id, ...song.attributes };
+        });
+        return this.data.songs;
+      })
+      
     }
   };
   let controller = {
@@ -119,8 +130,16 @@
           this.view.render(this.model.data)
         })
 
-      })
-    },
+      });
+      $(this.view.el).on("click",'#song_search',(e)=>{
+       let songName = $(this.view.el).find('.search input[name="search"]').val()
+       console.log(songName)
+       this.model.searchByName(songName)
+       .then(()=>{
+        this.view.render(this.model.data)
+       })
+    })
+  },
     bindEventHub: function() {
       window.eventHub.on("create", data => {
         this.model.data.songs.push(data);
