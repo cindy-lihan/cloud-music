@@ -236,9 +236,12 @@ input:focus{
 #upload-pop-mask.active{
   display: block;
 }
+
 .upload-pop-wrapper.active{
   display: block;
 }
+
+
 .upload-pop-wrapper{
   display: none;
   background: white;
@@ -301,6 +304,9 @@ input:focus{
   line-height: 26px;
   display: flex;
   margin-bottom: 5px;
+}
+.row.song-id{
+  display: none;
 }
 .row input{
   display: inline-block;

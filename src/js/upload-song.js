@@ -44,7 +44,7 @@
             var res = JSON.parse(info.response);
             var sourceLink = "http://" + domain + "/" + encodeURIComponent(res.key);
             window.eventHub.emit('upload',{
-              link: sourceLink,
+              url: sourceLink,
               key: res.key
             })
           },

@@ -31,74 +31,91 @@
     </div>
     `,
     render(data) {
-        $(this.el).html(this.template)
-        let {songs}  = data
-        let divList = songs.map(song=>{
-            let itemList = `<div class="flex-list-item">
+      $(this.el).html(this.template);
+      let { songs } = data;
+      let divList = songs.map(song => {
+        let itemList = `<div class="flex-list-item">
             <div class="flex-row content">
                 <div class="flex-cell name" title=${song.name}>${song.name}</div>
                 <div class="flex-cell singer" title=${song.singer}>${song.singer}</div>
                 <div class="flex-cell collection" title=${song.collection}>${song.collection}</div>
                 <div class="flex-cell url" title=${song.url}>${song.url}</div>
                 <div class="flex-cell operating">
-                    <a  data-id=${song.id} href="javascript:void(0);" class="cell-edit" id="editSong">修改</a>
+                    <a  data-song-id=${song.id} href="javascript:void(0);" class="cell-edit" id="editSong">修改</a>
                     <a href="javascript:void(0);" class="cell-delete">删除</a>
                 </div>
-            </div>`
-            return itemList
-        })
-        let $el =$(this.el)
-        $el.find('#flex-items').empty()
-        divList.map((domDiv)=>{
-            $el.find('#flex-items').append(domDiv)
-        })
-        }
-  }
+            </div>`;
+        return itemList;
+      });
+      let $el = $(this.el);
+      $el.find("#flex-items").empty();
+      divList.map(domDiv => {
+        $el.find("#flex-items").append(domDiv);
+      });
+    }
+  };
   let model = {
-      data :{
-          songs:[
-          ]
-      },
-      fetch:function(){
-        var query = new AV.Query('Song')
-        return query.find().then((songs)=>{
-            this.data.songs = songs.map((song)=>{
-                return {id:song.id, ...song.attributes}
-            })
-            return songs
-        })
+    data: {
+      songs: []
+    },
+    fetch: function() {
+      var query = new AV.Query("Song");
+      return query.find().then(songs => {
+        this.data.songs = songs.map(song => {
+          return { id: song.id, ...song.attributes };
+        });
+        return songs;
+      });
     }
   };
   let controller = {
     init(view, model) {
-      this.view = view
-      this.model = model
-      this.getAllSongs()
-      this.bindEventHub()
-      this.bindEvents()
+      this.view = view;
+      this.model = model;
+      this.getAllSongs();
+      this.bindEventHub();
+      this.bindEvents();
     },
-    getAllSongs: function () {
-       return this.model.fetch().then(()=>{
-            this.view.render(this.model.data)
-        })
+    getAllSongs: function() {
+      return this.model.fetch().then(() => {
+        this.view.render(this.model.data);
+      });
     },
     bindEvents: function() {
-    $(this.view.el).on('click','#addSong',(e)=>{
-          $('#upload-pop-mask').addClass('active')
-          $('#upload-pop').addClass('active')
-    })
-//     $(this.view.el).on('click','#editSong',(e)=>{
-//         $(this.view.el).find('#editSong')
-//         window.eventHub.emit('edit',)
-//   })
-  },
-  bindEventHub: function () {
-    window.eventHub.on('create', (data)=>{
-        this.model.data.songs.push(data)
-        this.view.render(this.model.data)
-    })
- 
-  }
-  }
-  controller.init(view, model)
+      $(this.view.el).on("click", "#addSong", e => {
+        window.eventHub.emit('add')
+      });
+      $(this.view.el).on("click", "#editSong", e => {
+        let songId = e.currentTarget.getAttribute("data-song-id");
+        let songs = this.model.data.songs
+        let data
+        for(let i = 0; i<songs.length;i++){
+            if(songs[i].id === songId){
+                data = songs[i]
+                break  
+            }
+        }
+        window.eventHub.emit("edit", JSON.parse(JSON.stringify(data)));
+      });
+    },
+    bindEventHub: function() {
+      window.eventHub.on("create", data => {
+        this.model.data.songs.push(data);
+        this.view.render(this.model.data);
+      });
+      window.eventHub.on("edit", data => {
+        let songId = data.id
+        let songs = this.model.data.songs
+        for(let i = 0; i<songs.length;i++){
+            if(songs[i].id === songId){
+                songs[i] = data
+                break  
+            }
+        }
+        //部分更新
+        this.view.render(this.model.data);
+      });
+    }
+  };
+  controller.init(view, model);
 }

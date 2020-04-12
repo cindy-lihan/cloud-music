@@ -47,7 +47,29 @@
         <footer class="footer"></footer>
     </div>
     <div class="upload-pop-root" id='addSongContainer'>
-    </div>
+        <div id="upload-pop-mask"></div>
+        <div id="upload-pop" class="upload-pop-wrapper">
+            <div class="upload-pop-hd">
+                <h3>新增歌曲</h3>
+                <span class="pop-close" id="addSongClose">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#iconclose"></use>
+                    </svg>
+                </span>
+            </div>
+            <div class="add-song-container">
+                <div id='upload-song-container'>
+                    <div id="upload-area">
+                        <p><input class='btn-choose' type="button" id="upload-button" value="选择文件"><span>或者拖拽文件上传</span>
+                        </p>
+                        <p>文件大小不能超过40MB</p>
+                    </div>
+                </div>
+                <div id='song-info-container'>
+            
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 
@@ -65,7 +87,8 @@
 <script src="../node_modules/plupload/js/plupload.min.js"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./js/event-hub.js"></script>
-<script src='./js/song-list.js'></script>
 <script src="./js/add-song.js"></script>
+<script src='./js/song-list.js'></script>
 <script src="./js/upload-song.js"></script>
+
 </html>
