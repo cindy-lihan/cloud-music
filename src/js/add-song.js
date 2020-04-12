@@ -31,14 +31,6 @@
     </form>
 </div>
     `,
-    initRender(data) {
-      let html = this.template;
-      let placeholders = ["id", "name", "singer", "url", "collection"];
-      placeholders.map(string => {
-        html = html.replace(`__${string}__`, data[string] || "");
-      });
-      $(this.el).html(html);
-    },
     // 新增修改时的渲染
     render(data) {
       //只能改变部分，上传区不能改因为七牛加了一些代码
@@ -105,12 +97,7 @@
     },
     // 修改保存
     edit(data) {
-      console.log('修改的数据---')
-      console.log(data)
-      
       var song = AV.Object.createWithoutData("Song", data.id);
-      console.log('数据库中的song')
-      console.log(song)
       song.set("name", data.name);
       song.set("collection", data.collection);
       song.set("url", data.url);
@@ -131,6 +118,14 @@
           alert("保存失败");
         }
       );
+    },
+    reset(){
+      this.data ={name: "",
+      singer: "",
+      url: "",
+      collection: "",
+      id: ""
+    }
     }
   };
   let controller = {
@@ -139,16 +134,25 @@
       this.view.init();
       this.model = model;
       this.form = $(this.view.el).find("#song-info");
-      this.view.initRender(this.model.data);
+      this.view.render(this.model.data);
       this.bindEvents();
       this.bindEventHub();
     },
     bindEventHub() {
       window.eventHub.on("upload", data => {
-        this.reset(data);
+        if (data && data["key"]) {
+          data["singer"] = data["key"].split("-")[0].trim();
+          data["name"] = data["key"]
+            .split("-")[1]
+            .split(".")[0]
+            .trim();
+        }
+        Object.assign(this.model.data,data)
+        this.view.render(this.model.data);
       });
       window.eventHub.on("edit", data => {
-        this.reset(data);
+        this.model.data = data
+        this.view.render(this.model.data)
         this.view.active("#upload-pop-mask");
         this.view.active(".upload-pop-wrapper");
       });
@@ -179,19 +183,22 @@
             window.eventHub.emit("edit", object);
             this.view.deactive("#upload-pop-mask");
             this.view.deactive("#upload-pop");
+            this.model.reset()
           });
         } else {
           //新增
           this.model.create(data).then(song => {
-            this.view.deactive("#upload-pop-mask");
-            this.view.deactive("#upload-pop");
             let str = JSON.stringify(song);
             let object = JSON.parse(str);
             window.eventHub.emit("create", object);
+            this.view.deactive("#upload-pop-mask");
+            this.view.deactive("#upload-pop");
+            this.model.reset()
           });
         }
       });
       $('#upload-pop').on("click", "#addSongClose", e => {
+        this.model.reset()
         this.view.deactive("#upload-pop-mask");
         this.view.deactive("#upload-pop");
       });
