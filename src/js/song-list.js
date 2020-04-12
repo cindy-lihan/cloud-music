@@ -42,7 +42,7 @@
                 <div class="flex-cell url" title=${song.url}>${song.url}</div>
                 <div class="flex-cell operating">
                     <a  data-song-id=${song.id} href="javascript:void(0);" class="cell-edit" id="editSong">修改</a>
-                    <a href="javascript:void(0);" class="cell-delete">删除</a>
+                    <a href="javascript:void(0);" id="deleteSong" data-song-id=${song.id} class="cell-delete">删除</a>
                 </div>
             </div>`;
         return itemList;
@@ -65,6 +65,14 @@
           return { id: song.id, ...song.attributes };
         });
         return songs;
+      });
+    },
+    delete:function(songId){
+      var todo = AV.Object.createWithoutData('Song', songId);
+      return todo.destroy(()=>{
+        alert('删除成功');
+      },()=>{
+        alert('删除失败');
       });
     }
   };
@@ -97,6 +105,21 @@
         }
         window.eventHub.emit("edit", JSON.parse(JSON.stringify(data)));
       });
+      $(this.view.el).on("click",'#deleteSong',(e)=>{
+        let songId = e.currentTarget.getAttribute("data-song-id");
+        this.model.delete(songId).then(()=>{
+          let id = e.currentTarget.getAttribute("data-song-id");
+          let songs = this.model.data.songs
+          for(let i = 0; i<songs.length;i++){
+              if(songs[i].id === id){
+                 songs.splice(i,1)
+                  break  
+              }
+          }
+          this.view.render(this.model.data)
+        })
+
+      })
     },
     bindEventHub: function() {
       window.eventHub.on("create", data => {
