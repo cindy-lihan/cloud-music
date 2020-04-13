@@ -43,7 +43,8 @@ a {
 .header-index {
   width: 100%;
   background-color: #fff;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 .header-index-inner {
   margin: 0 auto;
@@ -89,7 +90,6 @@ a {
 
 .inner-center {
   display: flex;
-  height: 80vh;
 }
 .inner-center .aside-left {
   min-width: 220px;
