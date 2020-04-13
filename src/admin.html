@@ -2,82 +2,83 @@
 <html lang="zh-Hans">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>管理页面</title>
-    <link rel="stylesheet" href="./admin.css">
-    <style type="text/css">
-        .icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
-    </style>
-    <script src="//at.alicdn.com/t/font_1731446_1w9f9ob8dnc.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>管理页面</title>
+  <link rel="stylesheet" href="./admin.css">
+  <style type="text/css">
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+  </style>
+  <script src="//at.alicdn.com/t/font_1731446_1w9f9ob8dnc.js"></script>
 </head>
 
 <body class="l-aside-left">
-    <header class="header-index">
-        <div class="header-index-inner">
-            <a class="header-index-log" title="网易云音乐"></a>
-            <div class="header-user">
-                <img class="user-avatar" src="//127.0.0.1:8080/src/imgs/avater.jpeg" alt="头像">
-                <span class="user-title">管理员账号</span>
-            </div>
-        </div>
-    </header>
-    <div id="vue-body">
-        <section class="inner-center clearfix">
-            <aside class="aside-left">
-                <div class="l-nav-area">
-                    <ul class="l-nav">
-                        <li class="l-nav-item"><a title="歌曲管理" href="#/songs" class="active">歌曲管理</a></li>
-                        <li class="l-nav-item"><a title="歌单管理" href="#/songlist">歌单管理</a></li>
-                    </ul>
-                </div>
-            </aside>
-            <main class="main">
-                <div class="songs-component" id="songsContainer">
-                </div>
-            </main>
-        </section>
-        <footer class="footer"></footer>
+  <header class="header-index">
+    <div class="header-index-inner">
+      <a class="header-index-log" title="网易云音乐"></a>
+      <div class="header-user">
+        <img class="user-avatar" src="//127.0.0.1:8080/src/imgs/avater.jpeg" alt="头像">
+        <span class="user-title">管理员账号</span>
+      </div>
     </div>
-    <div class="upload-pop-root" id='addSongContainer'>
-        <div id="upload-pop-mask"></div>
-        <div id="upload-pop" class="upload-pop-wrapper">
-            <div class="upload-pop-hd">
-                <h3>新增歌曲</h3>
-                <span class="pop-close" id="addSongClose">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#iconclose"></use>
-                    </svg>
-                </span>
-            </div>
-            <div class="add-song-container">
-                <div id='upload-song-container'>
-                    <div id="upload-area">
-                        <p><input class='btn-choose' type="button" id="upload-button" value="选择文件"><span>或者拖拽文件上传</span>
-                        </p>
-                        <p>文件大小不能超过40MB</p>
-                    </div>
-                </div>
-                <div id='song-info-container'>
-            
-                </div>
-            </div>
+  </header>
+  <div id="vue-body">
+    <section class="inner-center clearfix">
+      <aside class="aside-left">
+        <div class="l-nav-area">
+          <ul class="l-nav">
+            <li class="l-nav-item"><a title="歌曲管理" href="#/songs" class="active">歌曲管理</a></li>
+            <li class="l-nav-item"><a title="歌单管理" href="#/songlist">歌单管理</a></li>
+          </ul>
         </div>
-    </div>
+      </aside>
+      <main class="main">
+        <div class="songs-component" id="songsContainer">
+        </div>
+      </main>
+    </section>
+    <footer class="footer"></footer>
+  </div>
+  <div class="upload-pop-root" id='addSongContainer'>
+    <div id="upload-pop-mask"></div>
+    <div id="upload-pop" class="upload-pop-wrapper">
+      <div class="upload-pop-hd">
+        <h3>新增歌曲</h3>
+        <span class="pop-close" id="addSongClose">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#iconclose"></use>
+          </svg>
+        </span>
+      </div>
+      <div class="add-song-container">
+        <div id='upload-song-container'>
+          <div id="upload-area">
+            <p><input class='btn-choose' type="button" id="upload-button" value="选择文件"><span>或者拖拽文件上传</span>
+            </p>
+            <p>文件大小不能超过40MB</p>
+          </div>
+        </div>
+        <div id='song-info-container'>
 
-    <!-- 
-    <div id="sourcePlayer">
-    <video controls="" autoplay="" name="media">
-        <source src="http://q7soun4xa.bkt.clouddn.com/lqiZY40kwhMkfaGrp5-wsaRVxGbf" type="audio/mpeg">
-    </video>
-    </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="site-loading" id="site-loading">
+    <div class="loading">
+      <div class="loading-img"></div>
+      <span>正在上传...</span>
+    </div>
+  </div>
+
+
 
 </body>
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
@@ -89,6 +90,7 @@
 <script src="./js/event-hub.js"></script>
 <script src="./js/add-song.js"></script>
 <script src='./js/song-list.js'></script>
+<script src="./js/loading.js"></script>
 <script src="./js/upload-song.js"></script>
 
 </html>
