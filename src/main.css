@@ -1,0 +1,240 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 15px;
+  background: white;
+}
+
+.body-root {
+  position: relative;
+  height: 100%;
+}
+/* header  */
+.header-index {
+  width: 100%;
+}
+
+.top-header {
+  height: 84px;
+  background: #d53c33;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  position: relative;
+  width: 162px;
+  height: 63px;
+  background: url("//127.0.0.1:8080/src/imgs/main-logo-1.png") no-repeat;
+  background-size: 162px 63px;
+}
+
+.header-dl {
+  margin-right: 10px;
+}
+.top-header .dl-btn {
+  color: #d53c33;
+  display: inline-block;
+  position: relative;
+  border: 1px solid white;
+  border-radius: 37.5%/100%;
+  background: white;
+  width: 100px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 16px;
+}
+/* tabs */
+.gl-tab {
+  width: 100%;
+  height: 40px;
+}
+
+.gl-tab .tabs-title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-bottom: 1px solid #cccccc;
+}
+
+.tabs-title > li {
+  width: 33.3%;
+  height: 100%;
+  text-align: center;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabs-title > li.active {
+  color: #d53c33;
+}
+
+.tab-txt {
+  padding: 10px 5px;
+  /* 此处不设置relative  li.active .tab-txt::after无法显示*/
+  position: relative;
+  color: #333;
+  max-width: 100%;
+}
+
+.tabs-title > li.active .tab-txt::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: #d43c33;
+  bottom: 1px;
+  left: 0;
+  width: 100%;
+}
+/* main content */
+.tab-items {
+  padding-top: 20px;
+}
+
+.tab-items .remd-title {
+  font-size: 17px;
+  padding: 0 8px;
+  margin-bottom: 14px;
+  position: relative;
+  height: 20px;
+}
+.tab-items .remd-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -7px;
+  width: 2px;
+  height: 16px;
+  background-color: #d33a31;
+}
+
+/* recommend playlist*/
+.tab-items .remd-pl-content{
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.tab-items .pl-ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tab-items .pl-ul .pl-li {
+  width: 33.3%;
+  padding-right: 2px;
+  margin-bottom: 16px;
+}
+
+.pl-ul .pl-li .remd-img {
+  width: 100%;
+}
+
+.pl-li .remd-img .pl-img {
+  width: 100%;
+}
+
+.pl-ul .pl-li .remd-txt {
+  min-height: 30px;
+  font-size: 13px;
+  line-height: 1.2;
+  padding: 6px 2px 0 6px;
+}
+
+/* new songs */
+.tab-items .remd-newsongs {
+  position: relative;
+  min-height: 20px;
+  margin-left: 10px;
+}
+
+/* 歌曲信息显示超出的格式 */
+.font-thide {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+.remd-newsongs .remdsg-li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+}
+/*下边框效果*/
+.remd-newsongs .remdsg-li::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: #cccccc;
+}
+
+.remdsg-li .sg-item {
+  width: 90%;
+}
+.remdsg-li .sg-title {
+  font-size: 17px;
+}
+
+.remdsg-li .sg-info {
+  font-size: 12px;
+  color: #888;
+}
+
+.icon-play {
+  /* font-size: 22px; */
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  fill: #aaa;
+}
+
+/* footer */
+.index-ft {
+  position: relative;
+  margin-top: 4px;
+  width: 100%;
+  height: 400px;
+  background: url("//127.0.0.1:8080/src/imgs/recommand_bg.png");
+  background-size: contain;
+  text-align: center;
+}
+
+.logo {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  width: 260px;
+  height: 68px;
+  background: url("//127.0.0.1:8080/src/imgs/ft-logo.png") no-repeat;
+  background-size: contain;
+}
+
+.open-app {
+  line-height: 38px;
+  border: 1px solid #d33a31;
+  border-radius: 38px;
+  font-size: 16px;
+  color: #d33a31;
+  width: 80%;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hot Top Page */
+
