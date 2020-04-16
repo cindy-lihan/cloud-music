@@ -29,7 +29,7 @@ body {
   position: relative;
   width: 162px;
   height: 63px;
-  background: url("//127.0.0.1:8080/src/imgs/main-logo-1.png") no-repeat;
+  background: url(./imgs/main-logo-1.png) no-repeat;
   background-size: 162px 63px;
 }
 
@@ -95,7 +95,8 @@ body {
 }
 /* main content */
 .tab-items {
-  padding-top: 20px;
+  width: 100%;
+  height: 100%;
 }
 
 .tab-items .remd-title {
@@ -219,7 +220,7 @@ body {
   margin: 0 auto;
   width: 260px;
   height: 68px;
-  background: url("//127.0.0.1:8080/src/imgs/ft-logo.png") no-repeat;
+  background: url(./imgs/ft-logo.png) no-repeat;
   background-size: contain;
 }
 
@@ -237,4 +238,69 @@ body {
 }
 
 /* Hot Top Page */
+.tab-items .hottop-page{
+  width: 100%;
+  position: relative;
 
+}
+
+.hottop-page .hottop-hd{
+  position: relative;
+  padding-top: 38.9%;
+  background-image: url(./imgs/hot_music_bg.jpg);
+  background-size: contain;
+  
+}
+.hottop-hd .hottop-pct{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;  
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding-left: 20px;
+}
+.hottop-hd .hottop-pct::after{
+  content: '';
+  display: block;
+  position: absolute;
+  /* 下面设置是撑开容器 */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.2);
+}
+.hottop-hd .hot-icon{
+  background:url(./imgs/index_icon.png) no-repeat;
+  background-size: 166px 97px;
+  width: 142px;
+  height: 67px;  
+  background-position: -24px -30px;
+}
+
+.hottop-hd .hot-time{
+  margin-top: 10px;
+  font-size: 12px;
+  color: white;
+  transform: scale(.91);
+  transform-origin: left top;
+
+}
+
+.sg-no{
+  align-items: center;
+  width: 328px;
+  font-size: 17px;
+  color: #999;
+}
+.sg-top{
+  color: #df3436;
+}
+
+.hottop-page .remdsg-li .sg-item {
+  width: 82%;
+}
