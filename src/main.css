@@ -528,7 +528,6 @@ body {
   margin-right: 15px;
 }
 
-
 .album .pic-cover::after {
   content: "";
   display: block;
