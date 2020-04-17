@@ -101,6 +101,12 @@ body {
   height: 100%;
 }
 
+.tab-items .remdpl-page{
+  position: relative;
+  padding: 20px 0px 0px;
+}
+
+
 .tab-items .remd-title {
   font-size: 17px;
   padding: 0 8px;
@@ -120,6 +126,9 @@ body {
 }
 
 /* recommend playlist*/
+.tab-items .remdpl-page{
+  margin-top: ;
+}
 .tab-items .remd-pl-content {
   position: relative;
   padding-bottom: 24px;
@@ -187,7 +196,7 @@ body {
 }
 
 .remdsg-li .sg-item {
-  width: 90%;
+  width: 85%;
 }
 .remdsg-li .sg-title {
   font-size: 17px;

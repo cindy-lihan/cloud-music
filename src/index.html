@@ -39,7 +39,7 @@
     </header>
     <main class="tab-content">
       <div class="tab-items">
-        <div class="remdpl-page" style="display: none;">
+        <div class="remdpl-page">
           <h2 class="remd-title">推荐歌单</h2>
           <div class="remd-pl-content">
             <ul class="pl-ul">
@@ -82,7 +82,7 @@
             </ul>
           </div>
           <h2 class="remd-title">最新歌曲</h2>
-          <div class="remd-newsong">
+          <div class="remd-songs">
             <ul class="remdsg-ul">
               <li class="remdsg-li">
                 <div class="sg-item">
@@ -180,7 +180,7 @@
               <div class="hot-time">更新日期：4月15日</div>
             </div>
           </div>
-          <div class="remd-newsong">
+          <div class="remd-songs">
             <div class="sg-list">
               <ul class="remdsg-ul">
                 <li class="remdsg-li">
@@ -238,7 +238,7 @@
             </div>
           </div>
         </div>
-        <div class="search-page">
+        <div class="search-page" style="display: none;">
           <form class='sg-search' id="songSearch" action="#" method="get">
             <div class="input-cover">
               <svg class="icon icon-search" aria-hidden="true">
@@ -250,6 +250,7 @@
               </svg>
             </div>
           </form>
+          <!-- 默认搜索页 -->
           <div class="default-con" style="display: none;">
             <section class="hot-search">
               <h3 class="title">热门搜索</h3>
@@ -323,7 +324,8 @@
               </li>
             </ul>
           </section>
-          <div class="seach-result">
+          <!-- 搜索结果 -->
+          <div class="seach-result" style="display: none;">
             <section class="match-result">
               <h3 class="title">最佳匹配</h3>
               <ul class="match-list">
@@ -446,6 +448,7 @@
             </div>
             </di>
           </div>
+        </div>
     </main>
   </div>
 </body>
