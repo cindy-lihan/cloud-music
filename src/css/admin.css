@@ -58,7 +58,7 @@ a {
   margin: 0 60px;
   width: 140px;
   height: 80px;
-  background: url("http://127.0.0.1:8080/src/imgs/logo.png") no-repeat;
+  background: url(../imgs/logo.png) no-repeat;
   background-size: 140px 80px;
 }
 
@@ -136,7 +136,7 @@ a {
    width: 110px;
    color: white;
    cursor: pointer;
-   background: url(./icon/upload.png) no-repeat #DE0119 right bottom;
+   background: url(../icon/upload.png) no-repeat #DE0119 right bottom;
    background-size: 18px 18px; 
    background-position: top 10px left 12px;
    border: none;

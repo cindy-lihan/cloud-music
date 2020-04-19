@@ -30,7 +30,7 @@ body {
   position: relative;
   width: 162px;
   height: 63px;
-  background: url(./imgs/main-logo-1.png) no-repeat;
+  background: url(../imgs/main-logo-1.png) no-repeat;
   background-size: 162px 63px;
 }
 
@@ -71,6 +71,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .tabs-title > li.active {
@@ -104,6 +105,11 @@ body {
 .tab-items .remdpl-page{
   position: relative;
   padding: 20px 0px 0px;
+  display: none;
+}
+
+.remdpl-page.active{
+  display: block;
 }
 
 
@@ -221,7 +227,7 @@ body {
   margin-top: 4px;
   width: 100%;
   height: 400px;
-  background: url("//127.0.0.1:8080/src/imgs/recommand_bg.png");
+  background: url(../imgs/recommand_bg.png);
   background-size: contain;
   text-align: center;
 }
@@ -234,7 +240,7 @@ body {
   margin: 0 auto;
   width: 260px;
   height: 68px;
-  background: url(./imgs/ft-logo.png) no-repeat;
+  background: url(../imgs/ft-logo.png) no-repeat;
   background-size: contain;
 }
 
@@ -255,12 +261,16 @@ body {
 .tab-items .hottop-page {
   width: 100%;
   position: relative;
+  display: none;
 }
 
+.hottop-page.active{
+  display: block;
+}
 .hottop-page .hottop-hd {
   position: relative;
   padding-top: 38.9%;
-  background-image: url(./imgs/hot_music_bg.jpg);
+  background-image: url(../imgs/hot_music_bg.jpg);
   background-size: contain;
 }
 .hottop-hd .hottop-pct {
@@ -287,7 +297,7 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .hottop-hd .hot-icon {
-  background: url(./imgs/index_icon.png) no-repeat;
+  background: url(../imgs/index_icon.png) no-repeat;
   background-size: 166px 97px;
   width: 142px;
   height: 67px;
@@ -304,19 +314,30 @@ body {
 
 .sg-no {
   align-items: center;
-  width: 328px;
   font-size: 17px;
   color: #999;
+  margin-right: 10px;
 }
 .sg-top {
   color: #df3436;
 }
+.sg-play{
+  padding: 0 10px;
+}
 
 .hottop-page .remdsg-li .sg-item {
-  width: 82%;
+  flex: 1;
 }
 
 /* 搜索页面 */
+.search-page{
+  position: relative;
+  width: 100%;
+  display: none;
+}
+.search-page.active{
+  display: block;
+}
 .search-page .sg-search {
   width: 100%;
   position: relative;
@@ -543,7 +564,7 @@ body {
   position: absolute;
   top: 2px;
   right: -10px;
-  background-image: url(./imgs/index_icon.png);
+  background-image: url(../imgs/index_icon.png);
   background-repeat: no-repeat;
   background-size: 166px 97px;
   width: 10px;

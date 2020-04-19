@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>网易云音乐</title>
-  <link rel="stylesheet" href="./reset.css">
-  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/main.css">
   <script src='//at.alicdn.com/t/font_1751287_132ys069wf9b.js'></script>
 </head>
 
@@ -22,15 +22,15 @@
         </div>
       </div>
       <div class="tabs-area">
-        <nav class="gl-tab">
+        <nav class="gl-tab" id="tabs">
           <ol class="tabs-title">
-            <li class="active">
+            <li class="active" data-tab-name='recom-page'>
               <div class="tab-txt">推荐音乐</div>
             </li>
-            <li>
+            <li data-tab-name='hottop-page'>
               <div class="tab-txt">热歌榜</div>
             </li>
-            <li>
+            <li data-tab-name='search-page'>
               <div class="tab-txt">搜索</div>
             </li>
           </ol>
@@ -39,43 +39,43 @@
     </header>
     <main class="tab-content">
       <div class="tab-items">
-        <div class="remdpl-page">
+        <div class="remdpl-page active" id='recom-page' >
           <h2 class="remd-title">推荐歌单</h2>
           <div class="remd-pl-content">
             <ul class="pl-ul">
               <li class="pl-li" link="#">
                 <div class="remd-img">
-                  <img class='pl-img' src="//127.0.0.1:8080/src/imgs/pl-pop-test.jpg" alt="封面">
+                  <img class='pl-img' src="./imgs/pl-pop-test.jpg" alt="封面">
                 </div>
                 <p class="remd-txt">[华语速爆新歌] 最新华语音乐推荐</p>
               </li>
               <li class="pl-li" link="#">
                 <div class="remd-img">
-                  <img class='pl-img' src="//127.0.0.1:8080/src/imgs/pl-pop-test.jpg" alt="封面">
+                  <img class='pl-img' src="./imgs/pl-pop-test.jpg" alt="封面">
                 </div>
                 <p class="remd-txt">[华语速爆新歌] 最新华语音乐推荐</p>
               </li>
               <li class="pl-li" link="#">
                 <div class="remd-img">
-                  <img class='pl-img' src="//127.0.0.1:8080/src/imgs/pl-pop-test.jpg" alt="封面">
+                  <img class='pl-img' src="./imgs/pl-pop-test.jpg" alt="封面">
                 </div>
                 <p class="remd-txt">[华语速爆新歌] 最新华语音乐推荐</p>
               </li>
               <li class="pl-li" link="#">
                 <div class="remd-img">
-                  <img class='pl-img' src="//127.0.0.1:8080/src/imgs/pl-pop-test.jpg" alt="封面">
+                  <img class='pl-img' src="./imgs/pl-pop-test.jpg" alt="封面">
                 </div>
                 <p class="remd-txt">[华语速爆新歌] 最新华语音乐推荐</p>
               </li>
               <li class="pl-li" link="#">
                 <div class="remd-img">
-                  <img class='pl-img' src="//127.0.0.1:8080/src/imgs/pl-pop-test.jpg" alt="封面">
+                  <img class='pl-img' src="./imgs/pl-pop-test.jpg" alt="封面">
                 </div>
                 <p class="remd-txt">[华语速爆新歌] 最新华语音乐推荐</p>
               </li>
               <li class="pl-li" link="#">
                 <div class="remd-img">
-                  <img class='pl-img' src="//127.0.0.1:8080/src/imgs/pl-pop-test.jpg" alt="封面">
+                  <img class='pl-img' src="./imgs/pl-pop-test.jpg" alt="封面">
                 </div>
                 <p class="remd-txt">[华语速爆新歌] 最新华语音乐推荐</p>
               </li>
@@ -173,7 +173,7 @@
             </div>
           </footer>
         </div>
-        <div class="hottop-page" style="display: none;">
+        <div class="hottop-page" id="hottop-page">
           <div class="hottop-hd">
             <div class="hottop-pct">
               <div class="hot-icon"></div>
@@ -238,7 +238,7 @@
             </div>
           </div>
         </div>
-        <div class="search-page" style="display: none;">
+        <div class="search-page" id="search-page">
           <form class='sg-search' id="songSearch" action="#" method="get">
             <div class="input-cover">
               <svg class="icon icon-search" aria-hidden="true">
@@ -251,7 +251,7 @@
             </div>
           </form>
           <!-- 默认搜索页 -->
-          <div class="default-con" style="display: none;">
+          <div class="default-con">
             <section class="hot-search">
               <h3 class="title">热门搜索</h3>
               <ul class="hotsch-list">
@@ -333,7 +333,7 @@
                   <a href="#">
                     <div class="match-cover ">
                       <figure class="pic-cover">
-                        <img class="match-pic" src="//127.0.0.1:8080/src/imgs/artist_hcy.jpeg" alt="封面">
+                        <img class="match-pic" src="./imgs/artist_hcy.jpeg" alt="封面">
                       </figure>
                       <article class="describe">
                         <h4 class="main-des">歌手:华晨宇</h4>
@@ -348,7 +348,7 @@
                   <a href="#">
                     <div class="match-cover ">
                       <figure class="pic-cover">
-                        <img class="match-pic" src="//127.0.0.1:8080/src/imgs/artist_hcy.jpeg" alt="封面">
+                        <img class="match-pic" src="./imgs/artist_hcy.jpeg" alt="封面">
                       </figure>
                       <article class="describe">
                         <h4 class="main-des">专辑:新世界 NEW WORLD</h4>
@@ -452,5 +452,10 @@
     </main>
   </div>
 </body>
-
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./js/event-hub.js"></script>
+<script src="./js/index/tabs.js"></script>
+<script src="./js/index/recom-page.js"></script>
+<script src="./js/index/hottop-page.js"></script>
+<script src="./js/index/search-page.js"></script>
 </html>
