@@ -153,11 +153,20 @@ body {
 
 .pl-ul .pl-li .remd-img {
   width: 100%;
+  position: relative;
 }
 
 .pl-li .remd-img .pl-img {
   width: 100%;
 }
+.pl-li .remd-img .pl-listen{
+  position: absolute;
+  top: 0;
+  right: 5px;
+  color: #fff;
+  font-size: 12px;
+}
+
 
 .pl-ul .pl-li .remd-txt {
   min-height: 30px;
