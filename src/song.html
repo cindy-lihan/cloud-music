@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/song.css">
+  <title>单曲播放-网易云音乐</title>
+</head>
+
+<body>
+  <div id="app" class="song-container">
+      <div class="song-root">
+          <div class="song-bg">
+          </div>
+          <div class="song-content">
+            <div class="logo">
+            <svg class="icon" aria-hidden="true">
+            <use xlink:href="#iconlogo"></use>
+          </svg>
+            </div>
+            <div class="song-info">
+              <div class="song-wrapper">
+              <div class="song-clickarea"></div>
+                <div class="song-disc">
+                  <div class="song-turn">
+                    <div class="song-rollwraper">
+                      <div class="song-img">
+                        <img class="cover"  alt="封面">
+                      </div>
+                      <div class="play-btn active" id="play-btn"></div>
+                    </div>
+                    <div class="song-light"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="song-lyric">
+                <div class="lyric-content">
+                <h1 class="song-name">歌名-歌手</h1>
+                <div class="lyric-content">
+                  <div class="lyric-scroll">
+                    <div class="lyric-line">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="footer-wrapper">
+            <span class="btn btn-red">打开</span>
+            <span class="btn btn-red">下载</span>
+          </div>
+        </div>
+      </div>
+        <div class="song-audio">
+            <audio id='play-audio'></audio>
+        </div>
+  </div>
+  </div>
+
+</body>
+<script src='//at.alicdn.com/t/font_1751287_kljcs24vob.js'></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+<script src="./js/initializers/av.js"></script>
+<script src="./js/event-hub.js"></script>
+<script src="./js/song/song.js"></script>
+
+</html>

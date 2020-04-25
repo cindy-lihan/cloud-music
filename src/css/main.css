@@ -332,6 +332,7 @@ body {
 }
 .sg-play{
   padding: 0 10px;
+  z-index:100;
 }
 
 .hottop-page .remdsg-li .sg-item {

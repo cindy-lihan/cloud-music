@@ -56,7 +56,7 @@
             ${song.singer}-${song.collection}
           </div>
         </div>
-        <a href="#" class="sg-play" song-url=${song.url}>
+        <a href="./song.html?id=${song.id}" class="sg-play">
           <svg class="icon icon-play" aria-hidden="true">
             <use xlink:href="#iconplay"></use>
           </svg>
@@ -88,7 +88,7 @@
     },
     fetchRecdSgs: function() {
       var query = new AV.Query("Song");
-      query.limit(10)
+      query.limit(12)
       return query.find().then(songs => {
         this.data.songs = songs.map(song => {
           return { id: song.id, ...song.attributes };
